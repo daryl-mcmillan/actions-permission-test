@@ -10,6 +10,7 @@ jobs:
     steps:
 
       - run: whoami
+      - run: groups
 
       - uses: actions/checkout@v2
 
