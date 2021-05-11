@@ -1,0 +1,19 @@
+name: test
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+
+      - run: whoami
+
+      - uses: actions/checkout@v2
+
+      - uses: docker://ubuntu:latest
+        run: echo hello
+
+      - run: whoami
