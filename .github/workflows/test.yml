@@ -17,6 +17,8 @@ jobs:
 
       - uses: docker://ubuntu:latest
         with:
-          args: pwd
+          args: touch test.txt
+
+      - run: ls -la
 
       - uses: actions/checkout@v2
