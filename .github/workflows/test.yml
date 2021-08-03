@@ -7,7 +7,7 @@ jobs:
     steps:
       - run: echo hello
     outputs:
-      matrix: "[]"
+      matrix: '[{"name":"step 1", "prop1": "test property"}]'
 
   apply:
     needs: [ plan ]
