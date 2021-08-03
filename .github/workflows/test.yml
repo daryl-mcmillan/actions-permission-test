@@ -1,27 +1,18 @@
-name: test
-on:
-  push:
-  workflow_dispatch:
-
+name: Node.js CI
+on: [push]
 jobs:
-
-  test:
+  build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+       include:
+         - name: "test 1"
+           prop1: "this is a test"
+         - name: "test 2"
+           prop1: "this is another test"
     steps:
-
-      - run: whoami
-      - run: groups
-
-      - uses: actions/checkout@v2
-
-      - uses: actions/checkout@v2
-
-      - uses: docker://ubuntu:latest
-        with:
-          args: mkdir test
-
-      - run: ls -la
-
-      - uses: actions/checkout@v2
-
-      - run: ls -la
+      - name: Echo site details
+        env:
+          NAME: ${{ matrix.name }}
+          PROP1: ${{ matrix.prop1 }}
+        run: echo $NAME $PROP1
