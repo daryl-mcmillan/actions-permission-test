@@ -1,7 +1,14 @@
 name: Node.js CI
 on: [push]
 jobs:
-  build:
+
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: "[]"
+
+  apply:
+    needs: [ plan ]
     runs-on: ubuntu-latest
     strategy:
       matrix:
