@@ -4,6 +4,8 @@ jobs:
 
   plan:
     runs-on: ubuntu-latest
+    steps:
+	  run: echo hello
     outputs:
       matrix: "[]"
 
