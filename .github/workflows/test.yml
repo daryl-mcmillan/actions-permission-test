@@ -12,11 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-       include:
-         - name: "test 1"
-           prop1: "this is a test"
-         - name: "test 2"
-           prop1: "this is another test"
+       include: ${{ fromJson(needs.plan.outputs.matrix) }}
     steps:
       - name: Echo site details
         env:
